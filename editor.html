@@ -19,16 +19,22 @@
 				margin: 0 auto;
 				width: 90%;
 			}
+			
+			.color-rect{
+				width: 16px;
+				height: 16px;
+				margin: 2px;
+				border: 1px solid #CCCCCC;
+			}
 		</style>
 	</head>
 
 	<body>
 		<div class="btn-toolbar" role="toolbar">
 			<div class="btn-group btn-group-xs" role="group">
-			    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-align-left"></span></button>
-			    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-align-center"></spn></button>
-			    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-align-right"></spn></button>
-			    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-align-justify"></spn></button>
+			    <button type="button" class="btn btn-default" onclick="setJustifyLeft()"><span class="glyphicon glyphicon-align-left"></span></button>
+			    <button type="button" class="btn btn-default" onclick="setJustifyCenter()"><span class="glyphicon glyphicon-align-center"></spn></button>
+			    <button type="button" class="btn btn-default" onclick="setJustifyRight()"><span class="glyphicon glyphicon-align-right"></spn></button>
 			</div>
 			<div class="btn-group btn-group-xs" role="group">
 				<div class="btn-group btn-group-xs" role="group">
@@ -40,24 +46,24 @@
 					    <ul class="dropdown-menu">
 					      	<table>
 					      		<tr>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
+					      			<td><a href="#" onclick="setFontColor('#000000')"><div class="color-rect" style="background: #000000;"></div></a></td>
+					      			<td><a href="#" onclick="setFontColor('#555555')"><div class="color-rect" style="background: #555555;"></div></a></td>
+					      			<td><a href="#" onclick="setFontColor('#336699')"><div class="color-rect" style="background: #336699;"></div></a></td>
+					      			<td><a><div class="color-rect"></div></a></td>
+					      			<td><a><div class="color-rect"></div></a></td>
+					      			<td><a><div class="color-rect"></div></a></td>
+					      			<td><a><div class="color-rect"></div></a></td>
+					      			<td><a><div class="color-rect"></div></a></td>
 					      		</tr>
 					      		<tr>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
-					      			<td><a><div style="width: 16px;height: 16px;background: red;margin: 2px;"></div></a></td>
+					      			<td><a href="#" onclick="setFontColor('#EE0000')"><div class="color-rect" style="background: #EE0000;"></div></a></td>
+					      			<td><a><div class="color-rect"></div></a></td>
+					      			<td><a><div class="color-rect"></div></a></td>
+					      			<td><a><div class="color-rect"></div></a></td>
+					      			<td><a><div class="color-rect"></div></a></td>
+					      			<td><a><div class="color-rect"></div></a></td>
+					      			<td><a><div class="color-rect"></div></a></td>
+					      			<td><a><div class="color-rect"></div></a></td>
 					      		</tr>
 					      	</table>
 					    </ul>
@@ -89,6 +95,17 @@
 			    <button type="button" class="btn btn-default" onclick="insertImage()"><span class="glyphicon glyphicon-picture"></span></button>
 			    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-film"></spn></button>
 			</div>
+			
+			<div class="btn-group btn-group-xs" role="group">
+			    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			        <span class="glyphicon glyphicon-text-height" aria-hidden="true"></span>
+			    </button>
+			    <div class="dropdown-menu">
+			    	<input  />
+			    	<button>file</button>
+			    </div>
+			</div>
+			
 		</div>
 		
 		<div id="editor"></div>
@@ -103,6 +120,8 @@
 				var editor = document.getElementById("editor"); 
 				editor.contentEditable = true;
 			}
+
+
 
 		</script>
 	</body>
