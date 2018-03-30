@@ -5,10 +5,11 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
 		<style type="text/css">	
-			#editor{
+			.editor{
 				width: 600px;
 				height: 480px;
 				border: 1px solid #CCCCCC;
+				overflow: auto;
 			}	
 			body{
 				margin: 5px;
@@ -31,6 +32,9 @@
 
 	<body>
 		<div class="btn-toolbar" role="toolbar">
+			<div class="btn-group btn-group-xs" role="group">
+			    <button type="button" class="btn btn-default" onclick="getContentHtml()"><span class="glyphicon glyphicon-align-justify"></span></button>
+			</div>
 			<div class="btn-group btn-group-xs" role="group">
 			    <button type="button" class="btn btn-default" onclick="setJustifyLeft()"><span class="glyphicon glyphicon-align-left"></span></button>
 			    <button type="button" class="btn btn-default" onclick="setJustifyCenter()"><span class="glyphicon glyphicon-align-center"></spn></button>
@@ -100,19 +104,23 @@
 			    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			        <span class="glyphicon glyphicon-text-height" aria-hidden="true"></span>
 			    </button>
-			    <div class="dropdown-menu">
-			    	<input  />
-			    	<button>file</button>
+			    <div class="dropdown-menu" style="width: 300px;">
+			    	<div class="input-group" style="margin-left: 5px;margin-right: 5px;">
+				      <input type="text" class="form-control" placeholder="http://..." id="img_path">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button" onclick="insertImage(document.getElementById('img_path').value)">确定</button>
+				      </span>
+				    </div>
 			    </div>
-			</div>
-			
+			</div>		
 		</div>
 		
-		<div id="editor"></div>
+		<div id="editor" class="editor"></div>
 		
-		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script src="bootstrap/js/jquery.min.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="editor.js" type="text/javascript" charset="utf-8"></script>
+		<script src="bootstrap/js/filesave.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			initEditor();
 			//初始化
@@ -121,8 +129,10 @@
 				editor.contentEditable = true;
 			}
 
-
-
+			document.getElementById('editor').onmouseout = function() {
+	            lastEditRange = saveSelection();
+	        }
+			
 		</script>
 	</body>
 
